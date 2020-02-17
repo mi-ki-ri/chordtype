@@ -20,3 +20,11 @@ $ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+# 書式
+
+- くっついた2行がコード行、リリック行として認識される
+  - 改行コード2つで分割
+- | でコード行、リリック行の内部をさらに分割
+- html2canvas? canvas2pdf
+
