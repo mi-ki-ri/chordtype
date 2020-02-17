@@ -1,11 +1,19 @@
 <template>
-  <b-container fluid>
+  <b-container>
     <b-container tag="header" class="header" fluid>
       <b-row>
+        <b-col>
+          &nbsp;
+        </b-col>
         <b-col>
           <h1 class="text-center text-white">
             ChordType
           </h1>
+        </b-col>
+        <b-col class="btnCol">
+          <b-button @click="download">
+            DL
+          </b-button>
         </b-col>
       </b-row>
     </b-container>
@@ -15,7 +23,7 @@
           <b-input type="text" v-model="editorTitle" />
           <b-textarea v-model="editorText" class="editor"> </b-textarea>
         </b-col>
-        <b-col class="visualArea m-2">
+        <b-col class="visualArea m-2" id="visual">
           <b-container>
             <b-row>
               <b-col>
@@ -34,7 +42,6 @@
                   >
                     {{ ch ? ch : "&nbsp;" }}
                   </b-col>
-
                 </b-row>
                 <b-row class="lyric">
                   <b-col
@@ -56,6 +63,7 @@
 
 <script>
 import html2canvas from "html2canvas";
+import axios from "axios";
 
 export default {
   data() {
@@ -107,6 +115,17 @@ export default {
       console.log(answerObj);
       return answerObj;
     }
+  },
+  methods: {
+    download() {
+      html2canvas(document.querySelector("#visual")).then(canvas => {
+        let link = document.createElement("a");
+        
+        link.href = canvas.toDataURL("image/png");
+        link.download = "test.png";
+        link.click();
+      });
+    }
   }
 };
 </script>
@@ -123,10 +142,10 @@ export default {
   height: 88vh;
   border: 1px solid #ccc;
 }
-.bar{
+.bar {
   border-right: #ccc 1px solid;
 }
-.bar:last-of-type{
+.bar:last-of-type {
   border-right: none;
 }
 .chords {
@@ -153,5 +172,10 @@ export default {
 .lyric-sentence {
   flex-grow: 1;
   text-align: left;
+}
+.btnCol {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 </style>
