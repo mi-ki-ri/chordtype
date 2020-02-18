@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container fluid>
     <b-container tag="header" class="header" fluid>
       <b-row>
         <b-col>
@@ -131,7 +131,7 @@ export default {
         let link = document.createElement("a");
         
         link.href = canvas.toDataURL("image/png");
-        link.download = "test.png";
+        link.download = this.editorTitle + ".png";
         link.click();
       });
     }
@@ -144,11 +144,15 @@ export default {
   background-color: var(--cyan);
   height: 10vh;
 }
-.editor,
-.visualArea{
+.editor
+{
   width: 100%;
   height: 88vh;
   border: 1px solid #ccc;
+}
+
+.visualArea{
+  width: 100%;
 }
 
 #visual{
