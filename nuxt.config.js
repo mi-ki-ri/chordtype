@@ -1,5 +1,6 @@
 export default {
   mode: "spa",
+  generate: {dir:"docs"},
   /*
    ** Headers of the page
    */

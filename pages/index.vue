@@ -14,14 +14,15 @@
           <b-button @click="download">
             DL
           </b-button>
+          <b-link class="text-light ml-2" href="https://github.com/mi-ki-ri/chordtype">ReadMe</b-link>
         </b-col>
       </b-row>
     </b-container>
     <b-container fluid>
       <b-row>
         <b-col class="editorArea m-2">
-          <b-input type="text" v-model="editorTitle" class="mb-1" />
-          <b-textarea v-model="editorText" class="editor"> </b-textarea>
+          <b-input placeholder="Title" type="text" v-model="editorTitle" class="mb-1" />
+          <b-textarea placeholder="F,G|Am" v-model="editorText" class="editor"> </b-textarea>
         </b-col>
         <b-col class="visualArea m-2">
           <b-container id="visual">
