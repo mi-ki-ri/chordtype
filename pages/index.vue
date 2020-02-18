@@ -105,9 +105,18 @@ export default {
             typeof splittedLyric[i] != "undefined" ? splittedLyric[i] : "";
           let splittedBarLyric = nonnullLyric.split(",");
 
+          let conmma = Math.max(splittedBarChords.length, splittedBarLyric.length)
+          let finalChords = []
+          let finalLyric = []
+          for( var j = 0; j < conmma; j++ ){
+            finalChords.push( typeof splittedBarChords[j] != "undefined" ? splittedBarChords[j] : "" )
+            finalLyric.push( typeof splittedBarLyric[j] != "undefined" ? splittedBarLyric[j] : "" )
+          }
+
+
           lineObj.push({
-            chords: splittedBarChords,
-            lyric: splittedBarLyric
+            chords: finalChords,
+            lyric: finalLyric
           });
         }
         answerObj.push(lineObj);
@@ -136,8 +145,7 @@ export default {
   height: 10vh;
 }
 .editor,
-.canvas,
-.svg {
+.visualArea{
   width: 100%;
   height: 88vh;
   border: 1px solid #ccc;

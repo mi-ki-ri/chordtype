@@ -1,6 +1,5 @@
 export default {
   mode: "spa",
-  serverMiddleware: ['~/api/index.js'],
   /*
    ** Headers of the page
    */
