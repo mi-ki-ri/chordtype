@@ -20,7 +20,7 @@
     <b-container fluid>
       <b-row>
         <b-col class="editorArea m-2">
-          <b-input type="text" v-model="editorTitle" />
+          <b-input type="text" v-model="editorTitle" class="mb-1" />
           <b-textarea v-model="editorText" class="editor"> </b-textarea>
         </b-col>
         <b-col class="visualArea m-2">
@@ -36,7 +36,7 @@
               <b-col class="bar" :key="bindex" v-for="(bar, bindex) of line">
                 <b-row class="chords">
                   <b-col
-                    class="chord"
+                    :class="'chord ' + line[0].class"
                     :key="cindex"
                     v-for="(ch, cindex) of bar.chords"
                   >
@@ -83,6 +83,26 @@ export default {
         console.log("elm", elm);
         let lineObj = [];
 
+        if(elm == "---"){
+          lineObj.push({
+            chords: [""],
+            lyric: [""],
+            class: "underline"
+          })
+          answerObj.push(lineObj)
+          return
+        }
+
+        if( elm.match(/^\[[a-zA-Z0-9]\]/ig) ){
+          lineObj.push({
+            chords: [elm.match(/^\[[a-zA-Z0-9]+\]/ig)[0]],
+            lyric: [""],
+            class: "chapter"
+          })
+          answerObj.push(lineObj)
+          return
+        }
+
         let chordsAndLyric = elm.split("\n");
         let chords = chordsAndLyric[0];
         let lyric = chordsAndLyric[1];
@@ -116,7 +136,8 @@ export default {
 
           lineObj.push({
             chords: finalChords,
-            lyric: finalLyric
+            lyric: finalLyric,
+            class: "normal"
           });
         }
         answerObj.push(lineObj);
@@ -196,5 +217,12 @@ export default {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+.underline{
+  border-bottom: #ccc dashed 1px
+}
+.normal{}
+.chapter{
+  font-weight: bold;
 }
 </style>
