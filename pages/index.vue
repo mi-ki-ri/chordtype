@@ -1,5 +1,5 @@
 <template>
-  <b-container class="m-0" fluid>
+  <b-container class="m-0 p-0" fluid>
     <b-container tag="header" class="header m-0" fluid>
       <b-row>
         <b-col>
