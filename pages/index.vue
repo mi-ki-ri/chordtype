@@ -94,7 +94,7 @@ export default {
           return
         }
 
-        if( elm.match(/^\[[a-zA-Z0-9]\]/ig) ){
+        if( elm.match(/^\[[a-zA-Z0-9]+\]/ig) ){
           lineObj.push({
             chords: [elm.match(/^\[[a-zA-Z0-9]+\]/ig)[0]],
             lyric: [""],
