@@ -1,6 +1,9 @@
 export default {
   mode: "spa",
   generate: {dir:"docs"},
+  router: {
+    base: '/chordtype/'
+  },
   /*
    ** Headers of the page
    */
