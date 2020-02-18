@@ -23,11 +23,11 @@
           <b-input type="text" v-model="editorTitle" />
           <b-textarea v-model="editorText" class="editor"> </b-textarea>
         </b-col>
-        <b-col class="visualArea m-2" id="visual">
-          <b-container>
+        <b-col class="visualArea m-2">
+          <b-container id="visual">
             <b-row>
               <b-col>
-                <h2>
+                <h2 class="text-center">
                   {{ editorTitle }}
                 </h2>
               </b-col>
@@ -150,6 +150,13 @@ export default {
   height: 88vh;
   border: 1px solid #ccc;
 }
+
+#visual{
+  width: 600px;
+  max-width: 600px;
+  min-height: 800px;
+}
+
 .bar {
   border-right: #ccc 1px solid;
 }
