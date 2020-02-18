@@ -164,12 +164,12 @@ export default {
 <style scoped>
 .header {
   background-color: var(--cyan);
-  height: 10vh;
+  height: 12vh;
 }
 .editor
 {
   width: 100%;
-  height: 88vh;
+  min-height: 84vh;
   border: 1px solid #ccc;
 }
 
